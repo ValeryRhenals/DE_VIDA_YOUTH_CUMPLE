@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Button</title>
+    <link rel="stylesheet" href="cumple.css">
+
+    <link rel="icon" href="logo.jpg" type="image/jpg">
+
+</head>
+<body>
+     <nav class="navegacion_pricipal">
+        <div class="logo">Cumpleaños Rios De Vida Soledad</div>
+    </nav>
+    <div class="Agregar_cumples">
+        <form id="formulario">
+            <h1>🎉Agrega Tu Cumpleaños🎉</h1>
+            <!-- Nombre completo -->
+        <input type="text" id="nombre" name="nombre" required placeholder="Nombre Completo"><br><br>
+
+        <!-- Edad -->
+        <input type="number" id="edad" name="edad" required placeholder="Edad"><br>
+
+        <!--genero-->
+        <p>Tu genero:</p>
+
+        <input type="radio" id="masculino" name="genero" value="masculino" >
+        <label for="masculino">Masculino</label><br>    
+
+        <input type="radio" id="femenino" name="genero" value="femenino">
+        <label for="femenino">Femenino</label><br><br>
+
+        <!-- Fecha de nacimiento -->
+        <label for="Fecha de Nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" required placeholder="Fecha de Nacimiento"><br><br>
+
+        <!-- Teléfono -->
+        <input type="tel" id="telefono" name="telefono" required placeholder="Escribe tu numero telefonico"><br><br>
+
+        <!-- Correo -->
+        <input type="email" id="correo" name="correo" required placeholder="Escribe tu correo"><br><br>
+
+        <!--Red a la que  pertenece-->
+        <label for="red">Red a la que pertenece</label>
+        <select name="red" id="red">
+            <option value="elige">Seleciona una red aqui</option>
+            <option value="de vida youth">De Vida  Youth</option>
+            <option value="plus">Plus</option>
+            <option value="ejecutiva">Ejecutiva</option>
+            <option value="matri-menores">Matrimonios Menores</option>
+            <option value="matri-mayores">Matrimonios Mayores</option>
+        </select>
+        <!-- Botón -->
+        <h3> IMPORTANTE </h3>
+        <p>Para evitar registros duplicados, presiona el botón solo una vez. ¡Gracias por tu apoyo!</p>
+        <button type="submit">Enviar</button>
+        </form>
+    </div>
+<script>
+document.getElementById("formulario").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const datos = {
+        nombre: document.getElementById("nombre").value,
+        edad: document.getElementById("edad").value,
+        genero: document.querySelector('input[name="genero"]:checked')?.value,
+        fecha: document.getElementById("fecha").value,
+        telefono: document.getElementById("telefono").value,
+        correo: document.getElementById("correo").value,
+        red: document.getElementById("red").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbz6BTeQ_HFt41BJQi_rp_5Qwyf7ryrbcSxnO5rzxFdlXhjqyz3LXuG8T2qOOaJtVLMJTQ/exec", {
+        method: "POST",
+        body: JSON.stringify(datos)
+    })
+    .then(() => {
+        alert("Datos guardados 🎉");
+        document.getElementById("formulario").reset();
+    })
+    .catch(() => alert("Error al guardar 😢"));
+});
+</script>
+</body>
+</html>
+
+<!--como la tenia en el git, ya la actualice, pero que pasa yo esa pagina la estoy usando y buscando como hacerla para que los demas la puedan usar y tu en otra conversacion me dijiste como, me dijiste que atraves de un una hoja de excel en google, me dijiste  que desde la primera columna colocara nombre | edad | genero | fecha | telefono | |correo, y tambien me dijiste que usara un apps script donde coloco lo siguiente 
+function doPost(e) {
+  var hoja = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var datos = JSON.parse(e.postData.contents);
+
+  hoja.appendRow([
+    datos.nombre,
+    datos.edad,
+    datos.genero,
+    datos.fecha,
+    datos.telefono,
+    datos.correo,
+  ]);
+
+  return ContentService.createTextOutput("ok");
+}
+pero como ahora le estamos agergando otro dato que necesito que tambien se guarde en el excel, como haria??
+
+-->
