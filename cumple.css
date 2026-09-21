@@ -1,97 +1,215 @@
-
 * {
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #285180, #5b75a7);
-    margin: 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding: 20px;
 }
 
-/* NAV */
+
+/* =========================
+   NAV
+========================= */
+
 .navegacion_pricipal {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
+
+    width: 100%;
+    max-width: 1000px;
+
     padding: 15px 30px;
+    margin: 0 auto 20px;
+
     border-radius: 15px;
-    width: 80%;
-    margin: 20px auto;
+
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: clamp(18px, 3vw, 25px);
 
     color: #285180;
 }
 
-/* TARJETA FORM */
-.Agregar_cumples {
-    width: 80%;
-    margin: 20px auto;
-    font-size: 20px;
 
-    color: #5b75a7
+/* =========================
+   CONTENEDOR DEL FORMULARIO
+========================= */
+
+.Agregar_cumples {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #5b75a7;
 }
 
 
-/* FORMULARIO */
+/* =========================
+   FORMULARIO
+========================= */
+
 form {
     background: white;
-    padding: 25px;
+
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+
     border-radius: 20px;
 
-    width: 80%;
-    max-width: 600px; /* opcional para que no se vea gigante */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
-    margin: 20px auto;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     text-align: center;
 }
 
-/* INPUTS */
+
+/* =========================
+   INPUTS
+========================= */
+
 input {
     width: 100%;
-    padding: 10px;
+
+    padding: 12px 14px;
+
     margin-top: 10px;
+
     border-radius: 10px;
     border: 1px solid #ccc;
+
     outline: none;
+
+    font-size: 16px;
+
     transition: 0.3s;
 }
 
 input:focus {
     border-color: #e8a8a4;
-    box-shadow: 0 0 5px rgba(232,168,164,0.5);
+
+    box-shadow: 0 0 5px rgba(232, 168, 164, 0.5);
 }
 
-/* RADIO */
+
+/* =========================
+   RADIO BUTTONS
+========================= */
+
 input[type="radio"] {
     width: auto;
 }
 
-/* BOTÓN */
+
+/* =========================
+   BOTÓN
+========================= */
+
 button {
-    margin-top: 20px;
     width: 100%;
+
+    margin-top: 20px;
+
     padding: 12px;
+
     background-color: #5b75a7;
+
     border: none;
     border-radius: 10px;
+
     color: rgb(243, 238, 238);
+
     font-size: 16px;
+
     cursor: pointer;
+
     transition: 0.3s;
 }
 
 button:hover {
     background-color: #311f83;
-    transform: scale(1.05);
+    transform: scale(1.02);
+}
+
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .navegacion_pricipal {
+        padding: 15px 20px;
+    }
+
+    form {
+        max-width: 100%;
+        padding: 25px 20px;
+    }
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .navegacion_pricipal {
+        width: 100%;
+
+        padding: 14px 12px;
+
+        margin-bottom: 15px;
+
+        border-radius: 12px;
+
+        font-size: 19px;
+    }
+
+    .Agregar_cumples {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+
+        padding: 25px 18px;
+
+        border-radius: 16px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    button {
+        padding: 13px;
+        font-size: 16px;
+    }
 }
