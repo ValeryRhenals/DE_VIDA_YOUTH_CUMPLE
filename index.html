@@ -71,7 +71,7 @@ document.getElementById("formulario").addEventListener("submit", function(e){
         red: document.getElementById("red").value
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbyYhbfyqZbwUOv6L-HEUC81Pjap2O1T5zg03ZstL5OBmJHsH7tHSFKivActqJqI8kZW/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwxBvEg7jOhcSucxRZX31E2DFScFk6LfDXFDxcPZJflQWu6ki3c0Q0gEtHVyEgaYPMwyg/exec", {
         method: "POST",
         body: JSON.stringify(datos)
     })
@@ -97,6 +97,7 @@ function doPost(e) {
     datos.fecha,
     datos.telefono,
     datos.correo,
+    datos.red
   ]);
 
   return ContentService.createTextOutput("ok");
